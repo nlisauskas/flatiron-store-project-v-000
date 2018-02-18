@@ -6,4 +6,10 @@ class User < ActiveRecord::Base
 
    has_many :carts
    has_one :current_cart, class_name: 'Cart'
+
+   def create_current_cart
+     new_cart = carts.create
+     self.current_cart_id = new_cart.id
+     save
+   end
 end
