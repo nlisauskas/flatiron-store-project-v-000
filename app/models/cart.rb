@@ -3,7 +3,7 @@ class Cart < ActiveRecord::Base
   has_many :line_items
   has_many :items, through: :line_items
 
-  def items
+  def line_items
     self.line_items
   end
 
