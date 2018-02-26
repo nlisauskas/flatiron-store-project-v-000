@@ -1,7 +1,9 @@
 class Item < ActiveRecord::Base
-  belongs_to :category
-  has_many :line_items
-
-  def available_items
-  end
+    has_many :line_items
+    has_many :carts, through: :line_items
+    belongs_to :category
+    
+    def self.available_items
+        where('inventory > ?', 0)
+    end
 end
