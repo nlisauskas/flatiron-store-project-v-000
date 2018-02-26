@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
          has_many :carts
          belongs_to :current_cart, class_name: 'Cart', foreign_key: 'current_cart_id'
-          
+
           def create_current_cart
             #require 'pry'; binding.pry
             new_cart = carts.create
