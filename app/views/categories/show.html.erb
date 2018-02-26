@@ -2,6 +2,7 @@
 
 <ul>
 <% @category.items.each do |item| %>
-    <li><%= link_to item.title, item_path(item) %></li>
+    <li><%= link_to item.title, item_path(item) %> - $<%= item.price.to_f/100  %> </li>
+    <%= render partial: 'items/if_signed_in', locals: {item: item} %>
 <% end %>
 </ul>
