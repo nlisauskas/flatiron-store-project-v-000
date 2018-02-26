@@ -3,6 +3,9 @@ class Cart < ActiveRecord::Base
   has_many :line_items
   has_many :items, through: :line_items
 
+  def items
+    self.line_items
+  end
 
   def total
     total = 0
